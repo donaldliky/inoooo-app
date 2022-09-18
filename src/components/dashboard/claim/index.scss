@@ -1,0 +1,149 @@
+// .claim-body {
+//   background-color: rgba(0, 0, 0, 0.2);
+//   width: 100vw;
+//   height: 100vh;
+//   z-index: 0;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   position: fixed;
+
+.claim-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 550px;
+  padding: 30px;
+
+  background: #FBAD27;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Molot;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+    text-transform: uppercase;
+
+    .cross {
+      cursor: pointer;
+      color: black;
+    }
+  }
+
+  .center {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+
+    .center-left {
+      width: 150px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .center-right {
+      .project-name {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 180%;
+        color: #5F4314;
+      }
+
+      .datas {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        color: #5F4314;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: 1px solid #C28214;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .claim-bottom {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFBD4C;
+
+    button {
+      border: none;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bottom-left {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      color: #5F4314;
+      width: 50%;
+    }
+
+    .bottom-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+
+      .bottom-right-left-btn {
+        button {
+          background: #4DA438;
+          border-radius: 3px;
+          padding: 5px;
+
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 100%;
+          color: #FFFFFF;
+        }
+      }
+
+      .bottom-right-right-btn {
+        button {
+          background: #5F4314;
+          box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+          padding: 8px;
+
+          font-family: Molot;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 100%;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}
+
+// }

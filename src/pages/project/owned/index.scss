@@ -1,0 +1,55 @@
+.owned-body {
+  width: 100%;
+  // height: 65vh;
+
+  .title {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5F4314;
+  }
+
+  .nft-section {
+    // width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    // flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 30px;
+    font-family: Inter;
+
+    .no-nft {
+      font-size: 20px;
+      color: #5F4314;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .owned-body {
+    height: 100%;
+    margin-top: 20px;
+
+    .title {
+      text-align: center;
+    }
+
+    .nft-section {
+      justify-content: center;
+
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .owned-body {
+    .nft-section {
+      // flex-wrap: nowrap;
+    }
+  }
+}

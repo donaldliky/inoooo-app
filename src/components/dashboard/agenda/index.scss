@@ -1,0 +1,118 @@
+.agenda-body {
+  padding: 20px;
+  background: #FFD690;
+
+  .agenda {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #5F4314;
+  }
+
+  .suggested {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5F4314;
+    margin-top: 10px;
+  }
+
+  .select {
+    margin-top: 25px;
+
+    .select-right {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      color: #C28214;
+    }
+  }
+
+  .max {
+    background-color: #F9C670;
+    outline: 5px solid #F9C670;
+    // padding: 5px;
+    // font-size: 14px;
+    // font-weight: 700;
+  }
+
+  .vote {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .vote-left {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+
+      color: #5F4314;
+
+      span {
+        font-size: 10px;
+        color: #C28214;
+      }
+    }
+
+    .vote-right {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+
+      color: #5F4314;
+
+      span {
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    input {
+      padding: 10px;
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+      font-family: Molot;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      border: none;
+      width: 120px;
+      color: #5F4314;
+    }
+
+    button {
+      padding: 10px;
+      background: #5F4314;
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.3);
+      font-family: Molot;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: #FFFFFF;
+      border: none;
+    }
+  }
+}
+
+// @media (max-width: 420px) {
+//   .agenda-body .bottom {
+//     width: 100px;
+//   }
+// }

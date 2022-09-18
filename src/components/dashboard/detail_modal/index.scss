@@ -1,0 +1,41 @@
+.detail-centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 80vw;
+  height: 80vh;
+  padding: 20px;
+
+  background: #FFFFFF;
+  border-radius: 10px;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 180%;
+    color: #000000;
+
+    .cross {
+      cursor: pointer;
+      color: black;
+    }
+  }
+
+  .desc {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 180%;
+    color: #000000;
+    text-align: left;
+  }
+
+}

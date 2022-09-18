@@ -1,0 +1,115 @@
+.raffles-card-body {
+  width: 280px;
+  background: #F9C670;
+  border: 1px solid #FBAD27;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 40px;
+
+  .left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    img {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+
+  }
+
+  .right {
+    width: 100%;
+
+    .nft-name {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 700;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 5px;
+      color: #5F4314;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      * {
+        cursor: pointer;
+      }
+    }
+
+    .datas {
+      .data {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: #5F4314;
+      }
+    }
+
+    .winner {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      color: #5F4314;
+    }
+
+    .top {
+      margin-top: 20px;
+    }
+
+    .bottom {
+      margin-top: 5px;
+    }
+
+    .bottom-btn {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 18px;
+      gap: 15px;
+
+      .left-button {
+        background: #FFFFFF;
+        box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+        font-family: Font Awesome 5 Free;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 18px;
+        color: #5F4314;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 5px 10px;
+      }
+
+      .right-button {
+        background: #5F4314;
+        box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+        font-family: Molot;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 5px 10px;
+        color: #FFFFFF;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+
+}
+
+/* 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+/* unvisited link */
+a {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "Molot";
+  src: local("Molot"),
+    url("./assets/molot.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Century Gothic";
+  src: local("OPTIFuturaDemiBold"),
+    url("./assets/OPTIFuturaDemiBold.otf") format("truetype");
+  font-weight: 900;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #EDAC3C;
+  /* box-shadow: inset 0 0 5px grey; */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #C28214;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+} */

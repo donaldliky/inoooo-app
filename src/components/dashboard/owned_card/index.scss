@@ -1,0 +1,26 @@
+.owned-card-body {
+  width: 150px;
+
+  .nft-img {
+    img {
+      width: 100%;
+    }
+  }
+
+  .nft-name {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #5F4314;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .owned-card-body {
+    width: 120px;
+  }
+}

@@ -1,0 +1,54 @@
+.tab-header {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-top: 55px;
+
+  .tab-title-item {
+    font-family: Molot;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #C28214;
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+
+  .tab-title-item-selected {
+    font-family: Molot;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+    background-color: #FFBD4D;
+    padding: 15px 20px;
+    cursor: pointer;
+    // border-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .tab-header {
+    margin-top: 25px;
+
+    .tab-title-item {
+      font-size: 16px;
+      padding: 10px 12px;
+    }
+
+    .tab-title-item-selected {
+      font-size: 16px;
+      padding: 10px 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tab-header {
+    display: none;
+  }
+}

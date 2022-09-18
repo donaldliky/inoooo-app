@@ -1,0 +1,373 @@
+.dash-body {
+  height: 100%;
+
+  .filter {
+    display: flex;
+    justify-content: space-between;
+
+    .fitler-left {}
+
+    .filter-right {
+      position: relative;
+
+      input {
+        border-radius: 3px;
+        width: 415px;
+        color: #5F4314;
+        background-color: #EDAC3C80;
+        font-size: 16px;
+        padding: 10px;
+        padding-right: 35px;
+        border: 1px solid #C28214;
+
+        &:focus {
+          background-color: white;
+          // border: 1px solid #C28214;
+          border: none;
+        }
+
+        &::placeholder {
+          color: #5F4314;
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 23px;
+        color: #5F4314;
+      }
+
+      .cross-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 12px;
+        font-size: 23px;
+        color: #5F4314;
+        cursor: pointer;
+        z-index: 0;
+      }
+    }
+  }
+
+  .tab-content {
+    margin-top: 20px;
+    height: calc(100% - 80px);
+    // width: 100%;
+
+    // overflow-x: hidden;
+    padding-right: 20px;
+    overflow-y: auto;
+
+    .connect-body {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      // height: 100%;
+      .calendar-com {
+        width: 100%;
+        font-family: Inter;
+
+        button {
+          text-transform: capitalize;
+        }
+
+        a:link {
+          text-decoration: none;
+          color: #543c14;
+        }
+
+        /* visited link */
+        a:visited {
+          color: #543c14;
+        }
+
+        /* mouse over link */
+        a:hover {
+          color: #543c14;
+        }
+
+        /* selected link */
+        a:active {
+          color: #543c14;
+        }
+
+        h2 {
+          color: #543c14;
+        }
+
+        .fc-button-primary {
+          background-color: #5F4314;
+        }
+      }
+
+      .items-body {
+        width: 100%;
+        padding: 20px;
+        background-color: #e09a20;
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .fc-header-toolbar {}
+
+      .fc-daygrid-day-number {
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+
+      .fc-daygrid-day-events {
+        margin-top: 10px;
+      }
+
+      .fc-day-today {
+
+        // background: #be8e3a !important;
+        // border: 2px solid white;
+        // color: red;
+        .fc-daygrid-day-top {
+          a {
+            // color: red;
+            background-color: wheat;
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 25px;
+            height: 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      th {
+        background-color: #C28214;
+      }
+
+      td {
+        background-color: #dd961c;
+      }
+
+      // .fc-highlight {
+      //   background-color: #ffffff !important;
+      // }
+
+      // .fc-day-sun {
+      //   background-color: blue !important;
+      // }
+
+      // .fc-day-sat {
+      //   background-color: red;
+      // }
+    }
+
+    .disconnect-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+
+      .message {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #5F4314;
+        margin-top: 15%;
+        text-align: center;
+      }
+
+      .connect-btn {
+        button {
+          padding: 10px 20px;
+          background: #C28214;
+          box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+          color: #FFFFFF;
+          font-family: Molot;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          margin-top: 10%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .dash-body {
+    .filter {
+
+      .fitler-left {}
+
+      .filter-right {
+        input {
+          border-radius: 2px;
+          width: 370px;
+          // font-size: 12px;
+          // padding: 5px;
+
+        }
+      }
+    }
+
+    .tab-content {
+
+      .connect-body {
+        // justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .disconnect-body {
+
+        .message {}
+
+        .connect-btn {
+          button {}
+        }
+      }
+    }
+  }
+
+
+  .dropbtn {
+    font-size: 12px;
+    width: 150px;
+
+    span {
+      padding: 5px;
+    }
+  }
+
+  .dropdown-content {
+    min-width: 120px;
+  }
+
+  .dropdown-content a {
+    padding: 5px;
+  }
+
+  .dropdown-content a {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 970px) {
+  .dash-body {
+    .tab-content {
+
+      .connect-body {
+        justify-content: center;
+      }
+
+      .disconnect-body {
+
+        .message {}
+
+        .connect-btn {
+          button {}
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-body .tab-content {
+    overflow-y: unset;
+  }
+}
+
+@media (max-width: 720px) {
+  .dash-body .filter {
+    .filter-right input {
+      width: 250px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .dash-body .filter {
+    flex-direction: column;
+    gap: 10px;
+
+    .filter-right input {
+      width: 200px;
+    }
+  }
+
+  .dash-body {
+    .tab-content {
+
+      .connect-body {
+        justify-content: center;
+      }
+
+      .disconnect-body {
+
+        .message {}
+
+        .connect-btn {
+          button {}
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .dash-body {
+    width: 100%;
+
+    .connect-body {
+
+      .fc-header-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      td {
+        max-height: 20px;
+      }
+    }
+  }
+
+  .dash-body .fitler-left {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .dash-body .filter {
+    flex-direction: column;
+    flex-direction: 10px;
+    width: 100%;
+
+    .filter-right input {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  .dropbtn {
+    width: 200px;
+  }
+
+  // .dropdown-content {
+  //   width: 100%;
+  // }
+}

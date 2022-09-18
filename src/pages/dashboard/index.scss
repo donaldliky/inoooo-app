@@ -1,0 +1,360 @@
+.dash-body {
+  height: 100%;
+
+  .filter {
+    display: flex;
+    justify-content: space-between;
+
+    .fitler-left {}
+
+    .filter-right {
+      position: relative;
+
+      input {
+        border-radius: 3px;
+        width: 415px;
+        color: #5F4314;
+        background-color: #EDAC3C80;
+        font-size: 16px;
+        padding: 10px;
+        padding-right: 35px;
+        border: 1px solid #C28214;
+
+        &:focus {
+          background-color: white;
+          // border: 1px solid #C28214;
+          border: none;
+        }
+
+        &::placeholder {
+          color: #5F4314;
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 23px;
+        color: #5F4314;
+      }
+
+      .cross-icon {
+        position: absolute;
+        bottom: 10px;
+        right: 12px;
+        font-size: 23px;
+        color: #5F4314;
+        cursor: pointer;
+        z-index: 0;
+      }
+    }
+  }
+
+  .dash-tab-content {
+    margin-top: 20px;
+    height: calc(100% - 80px);
+    // width: 100%;
+
+    // overflow-x: hidden;
+    padding-right: 20px;
+    overflow-y: auto;
+
+    .connect-body {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      // height: 100%;y
+
+      .no-data {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        color: #5F4314;
+        margin-top: 15%;
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    // .disconnect-body {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   height: 100%;
+
+    //   .message {
+    //     font-family: Roboto;
+    //     font-style: normal;
+    //     font-weight: 400;
+    //     font-size: 16px;
+    //     color: #5F4314;
+    //     margin-top: 15%;
+    //     text-align: center;
+    //   }
+
+    //   .connect-btn {
+    //     button {
+    //       padding: 10px 20px;
+    //       background: #C28214;
+    //       box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+    //       color: #FFFFFF;
+    //       font-family: Molot;
+    //       font-style: normal;
+    //       font-weight: 400;
+    //       font-size: 16px;
+    //       margin-top: 10%;
+    //       display: flex;
+    //       justify-content: center;
+    //       align-items: center;
+    //       border: none;
+    //     }
+    //   }
+    // }
+  }
+}
+
+.disconnect-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .message {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #5F4314;
+    margin-top: 15%;
+    text-align: center;
+  }
+
+  .connect-btn {
+    button {
+      padding: 10px 20px;
+      background: #C28214;
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+      color: #FFFFFF;
+      font-family: Molot;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      margin-top: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
+  }
+}
+
+// .dropbtn {
+//   cursor: pointer;
+
+//   font-family: Inter;
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 16px;
+//   color: #5F4314;
+//   background: #FFFFFF;
+//   border: 1px solid #C28214;
+//   width: 190px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   // padding: 10px;
+//   padding: 0px;
+//   padding-left: 10px;
+
+//   span {
+//     background-color: #FBAD27;
+//     padding: 10px;
+//   }
+// }
+
+// .dropdown {
+//   position: relative;
+//   display: inline-block;
+// }
+
+// .dropdown-content {
+//   display: none;
+//   position: absolute;
+//   background-color: #f9f9f9;
+//   min-width: 160px;
+//   width: 100%;
+//   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+//   z-index: 1;
+//   margin-top: 5px;
+// }
+
+// .dropdown-content a {
+//   color: black;
+//   padding: 10px;
+//   text-decoration: none;
+//   display: block;
+//   width: 100%;
+// }
+
+// .dropdown-content button {
+//   color: black;
+//   padding: 10px;
+//   text-decoration: none;
+//   display: block;
+//   width: 100%;
+// }
+
+@media (max-width: 1400px) {
+  .dash-body {
+    .filter {
+
+      .fitler-left {}
+
+      .filter-right {
+        input {
+          border-radius: 2px;
+          width: 370px;
+          // font-size: 12px;
+          // padding: 5px;
+
+        }
+      }
+    }
+
+    .tab-content {
+
+      .connect-body {
+        // justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .disconnect-body {
+
+        .message {}
+
+        .connect-btn {
+          button {}
+        }
+      }
+    }
+  }
+
+
+  .dropbtn {
+    font-size: 12px;
+    width: 150px;
+
+    span {
+      padding: 5px;
+    }
+  }
+
+  .dropdown-content {
+    min-width: 120px;
+  }
+
+  .dropdown-content a {
+    padding: 5px;
+  }
+
+  .dropdown-content a {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 970px) {
+  .dash-body {
+    .tab-content {
+
+      .connect-body {
+        justify-content: center;
+      }
+
+      .disconnect-body {
+
+        .message {}
+
+        .connect-btn {
+          button {}
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-body .tab-content {
+    overflow-y: unset;
+  }
+}
+
+@media (max-width: 720px) {
+  .dash-body .filter {
+    .filter-right input {
+      width: 250px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .dash-body .filter {
+    flex-direction: column;
+    gap: 10px;
+
+    .filter-right input {
+      width: 200px;
+    }
+  }
+
+  .dash-body {
+    .tab-content {
+
+      .connect-body {
+        justify-content: center;
+      }
+
+      .disconnect-body {
+
+        .message {}
+
+        .connect-btn {
+          button {}
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .dash-body {
+    width: 100%;
+  }
+
+  .dash-body .fitler-left {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .dash-body .filter {
+    flex-direction: column;
+    flex-direction: 10px;
+    width: 100%;
+
+    .filter-right input {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+
+  .dropbtn {
+    width: 200px;
+  }
+
+  // .dropdown-content {
+  //   width: 100%;
+  // }
+}

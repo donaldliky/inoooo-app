@@ -1,0 +1,248 @@
+.home-card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background: #F9C670;
+  min-width: 500px;
+  max-width: 500px;
+
+  &:hover {
+    background: #FFD690;
+  }
+
+  .body-left {
+    width: 49%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .body-left-top {
+      height: 45%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 11px;
+
+      .name {
+        font-family: Century Gothic;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 16px;
+        color: #5F4314;
+      }
+
+      .desc {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        color: #5F4314;
+        font-size: 12px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .body-left-bottom {
+      height: 55%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .data {
+        table {
+          width: 100%;
+
+          tbody {
+            font-family: Inter;
+            color: #5F4314;
+
+            tr {
+              td {
+                font-size: 14px;
+                font-weight: 400;
+              }
+
+              .tr-left {
+                width: 45%;
+              }
+
+              .tr-right {
+                font-weight: 600;
+                width: 55%;
+              }
+            }
+          }
+        }
+      }
+
+      .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        div {
+          margin-right: 10px;
+          background-color: #FBAD27;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          font-size: 16px;
+          box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+
+          &:hover {
+            background-color: #D19123;
+          }
+        }
+      }
+    }
+  }
+
+  .body-right {
+    width: 47%;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+
+    img {
+      width: 100%;
+
+    }
+
+    button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 5px;
+      gap: 10px;
+
+      background: #C28214;
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+
+      font-family: Molot;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #FFFFFF;
+
+      width: 100%;
+      margin-top: 10px;
+      border: none;
+
+      &:hover {
+        background: #976716;
+      }
+    }
+
+    .status-whitelisted {
+      background: #4DA438;
+      color: #FFFFFF;
+    }
+
+    .status-not-whitelisted {
+      background: #C28214;
+      color: #FFFFFF;
+    }
+
+    .status-unknown {
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(194, 130, 20, 0.5);
+    }
+
+  }
+}
+
+@media (max-width: 1400px) {
+  .home-card-body {
+    min-width: 440px;
+    width: 440px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-card-body {
+    min-width: 420px;
+    width: 420px;
+  }
+}
+
+@media (max-width: 970px) {
+  .home-card-body .body-left {
+    .links {
+      margin-top: 10px;
+    }
+
+    .desc {
+      margin-top: 5px;
+    }
+
+    .datas {
+      margin-top: 5px;
+    }
+
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-card-body {
+    min-width: 100px;
+    max-width: 420px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .home-card-body {
+    font-size: 12px;
+
+    .body-left {
+      width: 45%;
+
+      .name {
+        font-size: 12px;
+      }
+
+      .datas {
+        table {
+          tbody {
+            tr td {
+              font-size: 12px;
+              font-weight: 300;
+            }
+          }
+        }
+      }
+
+      .links div {
+        margin-right: 5px;
+        padding: 5px;
+        font-size: 12px;
+      }
+    }
+
+    .body-right {
+      width: 45%;
+
+      button {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.small-loading-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,146 @@
+.whitelist-opp-body {
+  width: 100%;
+  height: 65vh;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .left {
+        font-family: Inter;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #5F4314;
+      }
+
+      .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+
+        .twitterBtn {
+          background: #C28214;
+          box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+          color: #FFFFFF;
+          border: none;
+          padding: 10px;
+          font-size: 16px;
+          // margin-right: 15px;
+          font-family: Inter;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+
+        }
+      }
+    }
+
+    .bottom {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 20px;
+
+      .text {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #5F4314;
+        text-transform: uppercase;
+      }
+
+      hr {
+        width: 100%;
+        margin-left: 10px;
+        color: #C28214;
+        border: 1px solid #C28214;
+      }
+    }
+  }
+
+  .nft-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 25px;
+
+    .no-exist {
+      color: #5F4314;
+      text-align: center;
+      font-family: Inter;
+      font-size: 20px;
+    }
+  }
+
+  .authorize-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+
+    button {
+      background: #C28214;
+      box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+      color: #FFFFFF;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      font-family: Inter;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .whitelist-opp-body .header .top .right {
+    .twitterBtn {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
+}
+
+@media (max-width: 1300px) {}
+
+@media (max-width: 768px) {
+  .whitelist-opp-body {
+    height: 100%;
+    margin-top: 10px;
+
+    .header {
+      .top {
+        flex-direction: column;
+
+        .right {
+          margin-top: 10px;
+
+          flex-direction: column;
+          align-items: flex-end;
+        }
+      }
+    }
+
+    .nft-section {
+      justify-content: center;
+    }
+  }
+}
