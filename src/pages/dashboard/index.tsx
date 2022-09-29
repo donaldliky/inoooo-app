@@ -10,7 +10,7 @@ import DropDown from '../../components/dropdown';
 
 // redux
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { selectDiscordInfo } from '../../app/slice/dashboardSlice';
+import { selectDiscordInfo, selectMyDiscordServers, selectAuthorizeInfo } from '../../app/slice/dashboardSlice';
 import { selectProjects, setOwnedNfts, setProjectsAsync, setOneProject } from '../../app/slice/projectSlice';
 import { setLoadingFlag } from '../../app/slice/wallletSlice';
 
@@ -42,19 +42,30 @@ const Dashboard = () => {
   // redux
   const discordInfo = useAppSelector(selectDiscordInfo)
   const projects = useAppSelector(selectProjects)
+  const myServers = useAppSelector(selectMyDiscordServers)
 
-  const onClickUpvote = async (name: string) => {
-    await axios.get(`${BACKEND_URL}/api/upvote/${name}`)
-  }
+  // const onClickUpvote = async (name: string) => {
+  //   await axios.get(`${BACKEND_URL}/api/upvote/${name}`)
+  // }
 
   const onClickDiscordConnect = () => {
     window.location.href = DISCORD_REDIRECT_URL
   }
 
+  const checkMyServer = (serverId: string) => {
+    let status: boolean = false
+    myServers.map((server: any) => {
+      if (server.id === serverId) {
+        return status = true
+      }
+    })
+    return status
+  }
+
   useEffect(() => {
     (
       async () => {
-        if (discordInfo.username && discordInfo.discriminator) {
+        if (discordInfo.username) {
           dispatch(setLoadingFlag(true))
           await setProjectsAsync(dispatch)
           dispatch(setLoadingFlag(false))
@@ -113,8 +124,7 @@ const Dashboard = () => {
                         <HomeCard
                           key={index}
                           data={item}
-                          type={0}
-                          onClickUpvote={onClickUpvote}
+                          isMyServer={checkMyServer(item.serverId)}
                         />
                       )
                     })

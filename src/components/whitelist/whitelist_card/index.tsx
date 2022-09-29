@@ -12,12 +12,12 @@ import { BACKEND_URL } from '../../../config';
 import { selectAuthorizeInfo, selectDiscordInfo } from '../../../app/slice/dashboardSlice';
 
 const WhitelistCard = (props: any) => {
-  const { _id, subscribeStatus, name, description, mintDate, mintPrice, totalSupply, image, discord, website, twitter, walletSubmission, serverId, whitelistRoleIDs } = props.data
-  const whitelistStatus = props.whitelistStatus
+  const { _id, subscribeStatus, name, description, mintDate, mintPrice, totalSupply, image, discord, website, twitter, walletSubmission, whitelistActive, serverId } = props.data
+  // const whitelistStatus = props.whitelistStatus
   const authorizeInfo = useAppSelector(selectAuthorizeInfo)
   const discordInfo = useAppSelector(selectDiscordInfo)
   const discordId = discordInfo.id
-  const [wlStatus, setWlStatus] = useState(whitelistStatus)
+  const [wlStatus, setWlStatus] = useState(whitelistActive)
 
   const d = new Date(mintDate)
 
@@ -69,6 +69,28 @@ const WhitelistCard = (props: any) => {
   //   )()
   // }, [authorizeInfo.token_type, authorizeInfo.access_token])
 
+  // useEffect(() => {
+  //   (
+  //     async () => {
+  //       if (serverId) {
+  //         const response = await axios.get(`https://discord.com/api/users/@me/guilds/${serverId}/member`, {
+  //           headers: {
+  //             'Content-Type': 'application-x-www-form-urlencoded'
+  //           },
+  //           data: {
+  //             'client_id': '',
+  //             'client_secret': '',
+  //             'grant_type': 'authorization_code',
+  //             'code': '',
+  //             'redirect_url': ''
+  //           }
+  //         })
+  //         console.log('result: ', response.data)
+  //       }
+  //     }
+  //   )()
+  // }, [serverId])
+
   return (
     <div className='whitelist-card-body'>
       {
@@ -103,7 +125,7 @@ const WhitelistCard = (props: any) => {
               <tr>
                 <td>Mint Date</td>
                 <td className='tr-right'>
-                  {mintDate ? d.getMonth() + '/' + d.getDay() + '/' + d.getFullYear() : 'TBA'}
+                  {mintDate ? d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear() : 'TBA'}
                 </td>
               </tr>
               <tr></tr>

@@ -152,15 +152,15 @@ const OpportunityCard = (props: any) => {
             ) : (
               <div>
                 <button
-                  disabled={data.isObtained || (data.isWinner === false) || (data.subscribedStatus === false)}
+                  disabled={data.isObtained || (data.isWinner === false) || (data.subscribedStatus === false) || (data.whitelistActive !== 1)}
                   onClick={onClickClaim}
-                  // style={{ background: data.isObtained ? '#4DA438' : '' }}
                   style={{
                     background: data.subscribedStatus ? data.isObtained ? '#4DA438' : '' : '#BCA377',
                     color: data.subscribedStatus ? '#FFFFFF' : '#FCE2B7'
                   }}
                 >
-                  {data.subscribedStatus ? data.isObtained ? 'ROLE OBTAINED' : 'SECURE WHITELIST' : 'UNCLAIMED'}
+                  {/* {data.subscribedStatus ? data.isObtained ? 'ROLE OBTAINED' : 'SECURE WHITELIST' : 'UNCLAIMED'} */}
+                  {data.isObtained ? 'ROLE OBTAINED' : data.subscribedStatus ? 'SECURE WHITELIST' : 'UNCLAIMED'}
                 </button>
                 <button style={{ color: '#FCE2B7', backgroundColor: data.isWinner ? '#A3B554' : '#BCA377' }} disabled={true}>
                   {data.isWinner ? 'WON' : 'LOST'}
@@ -184,7 +184,7 @@ const OpportunityCard = (props: any) => {
         <div className='data-list'>
           <div className='data'>Supply: {data.raffle.supply ? data.raffle.supply : 'TBA'}</div>
           <div className='data'>Mint Price: {data.raffle.mintPrice ? data.raffle.mintPrice : 'TBA'}</div>
-          <div className='data'>Mint Date: {data.raffle.mintDate ? d.getMonth() + '/' + d.getDay() + '/' + d.getFullYear() : 'TBA'}
+          <div className='data'>Mint Date: {data.raffle.mintDate ? d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear() : 'TBA'}
           </div>
           {
             status === 'Ongoing' ? (
@@ -196,7 +196,7 @@ const OpportunityCard = (props: any) => {
                 Ends in: Ended
               </div>
             ) : (
-              <div className='data'>Whitelist: {data.subscribedStatus ? 'Active' : 'Closed'}</div>
+              <div className='data'>Whitelist: {data.whitelistActive === 1 ? 'Active' : 'Closed'}</div>
             )
           }
         </div>

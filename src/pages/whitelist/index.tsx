@@ -72,8 +72,8 @@ const Whitelist = () => {
         if (discordId) {
           dispatch(setLoadingFlag(true))
           const res = await getProjectData(caption)
-          console.log('res: ', res)
           if (res) {
+            setData([])
             setData(res)
           } else {
             setData([])
@@ -125,7 +125,6 @@ const Whitelist = () => {
                 <button onClick={onClickDiscordConnect}>CONNECT DISCORD</button>
               </div>
             </div>
-
         }
       </div>
     </div>

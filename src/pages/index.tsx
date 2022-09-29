@@ -31,11 +31,11 @@ import './burger.css'
 
 // redux
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { setAuthorizeInfo, setDiscordInfo, selectDiscordInfo } from '../app/slice/dashboardSlice'
+import { setAuthorizeInfo, setMyDiscordServers, setDiscordInfo, selectDiscordInfo } from '../app/slice/dashboardSlice'
 import { setWalletAddress, selectLoadingFlag, setLoadingFlag } from '../app/slice/wallletSlice';
 
 // config
-import { DISCORD_API_URL, DISCORD_AVATAR_BASEURL } from '../config'
+import { DISCORD_API_URL, DISCORD_AVATAR_BASEURL, CLIENT_ID, CLIENT_SECRET } from '../config'
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 const Login = () => {
@@ -51,6 +51,11 @@ const Login = () => {
   // redux
   const discordInfo = useAppSelector(selectDiscordInfo)
   const loadingFlag = useAppSelector(selectLoadingFlag)
+
+  // params
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
+  const code = params.get('code');
 
   const onClickLogo = () => {
     setDropDisplay(dropDisplay == 'block' ? 'none' : 'block')
@@ -152,6 +157,23 @@ const Login = () => {
     return response
   }
 
+  const getMyServers = async (params: any) => {
+    await axios.get(`${DISCORD_API_URL}/guilds`, {
+      headers: {
+        'Authorization': `${params.token_type} ${params.access_token}`
+      }
+    }).then((res: any) => {
+      const result = res.data
+      console.log('server: ', result)
+      if (result) {
+        dispatch(setMyDiscordServers(result))
+        localStorage.setItem('servers', result)
+      }
+    }).catch((err: any) => {
+      console.log("error : ", err.message);
+    })
+  }
+
   useEffect(() => {
     let authorize: any
     if (!!window.location.hash) {
@@ -181,13 +203,13 @@ const Login = () => {
 
     // dispatch(setDiscordInfo({
     //   accent_color: 1913814,
-    //   // avatar: "f81fb33d77f5fae354b713a10a46d741",
     //   avatar: "f81fb33d77f5fae354b713a10a46d",
     //   avatar_decoration: null,
     //   banner: null,
     //   banner_color: "#1d33d6",
     //   discriminator: "8898",
     //   flags: 0,
+    //   // id: "934002267340828682",
     //   id: "934002267340828682",
     //   locale: "en-US",
     //   mfa_enabled: false,
@@ -198,6 +220,10 @@ const Login = () => {
     if (authorize.access_token !== null && !!authorize) {
       dispatch(setAuthorizeInfo(authorize))
       getDiscordAccountInfo({
+        token_type: authorize['token_type'],
+        access_token: authorize['access_token']
+      })
+      getMyServers({
         token_type: authorize['token_type'],
         access_token: authorize['access_token']
       })

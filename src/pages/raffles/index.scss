@@ -81,10 +81,21 @@
               text-transform: uppercase;
               border: none;
               color: #5F4314;
+
+              &:hover {
+                background: rgba(0, 0, 0, 0.3);
+                color: white;
+              }
             }
 
             .nft-btn {
               background: #FBAD27;
+
+              &:hover {
+                background: rgba(0, 0, 0, 0.3);
+                color: white;
+                // color: #FBAD27;
+              }
             }
           }
         }
@@ -118,7 +129,18 @@
       overflow-y: auto;
       height: 650px;
       min-height: 600px;
+
       // height: 600px;
+      .no-data {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        color: #5F4314;
+        margin-top: 15%;
+        text-align: center;
+        width: 100%;
+      }
     }
   }
 }

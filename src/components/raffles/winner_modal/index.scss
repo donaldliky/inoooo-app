@@ -1,18 +1,3 @@
-// .wt-body {
-//   background-color: rgba(0, 0, 0, 0.5);
-//   width: 100vw;
-//   height: 100vh;
-//   z-index: 0;
-//   // top: -50%;
-//   // left: 50%;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   position: fixed;
-//   // transition: background-color top;
-//   transition: background-color 1s ease-out 0.5s, top 0.5s ease-out;
-
-
 .centered {
   position: fixed;
   top: 50%;
@@ -100,6 +85,10 @@
         font-size: 14px;
         line-height: 180%;
         color: #000000;
+
+        th {
+          text-align: left;
+        }
       }
     }
 
@@ -126,37 +115,3 @@
     width: 90vw;
   }
 }
-
-// }
-
-// .ModalOpen {
-//   animation: openModal 2s ease-out forwards;
-// }
-
-// .ModalClosed {
-//   animation: closeModal 2s ease-out forwards;
-// }
-
-// @keyframes openModal {
-//   0% {
-//     display: none;
-//     // transform: translateY(-100%);
-//   }
-
-//   100% {
-//     display: flex;
-//     // transform: translateY(0);
-//   }
-// }
-
-// @keyframes closeModal {
-//   0% {
-//     display: flex;
-//     // transform: translateY(0);
-//   }
-
-//   100% {
-//     display: none;
-//     // transform: translateY(-100%);
-//   }
-// }

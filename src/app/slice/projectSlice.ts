@@ -9,6 +9,7 @@ const initialState = {
   projects: [],
   ownedNfts: [],
   oneNft: {},
+  dropList: [{ value: '' }],
   oneProject: {
     _id: '',
     name: '',
@@ -28,7 +29,11 @@ const initialState = {
     website: '',
     creatorAddress: [],
     keyValue: '',
-    nftNumber: 0
+    nftNumber: 0,
+    receiverAddress: '',
+    tokenAddress: '',
+    tokenAmount: 0,
+    tokenSymbol: ''
   }
 }
 
@@ -50,18 +55,32 @@ export const projectsSlice = createSlice({
     },
     setNftNumber: (state, action: PayloadAction<any>) => {
       state.oneProject.nftNumber = action.payload
+    },
+    setDropList: (state, action: PayloadAction<any>) => {
+      const listItem: string = action.payload
+      state.dropList.push({ value: listItem })
     }
   },
 })
 
-export const { setProjects, setOwnedNfts, setOneProject, setOneNft, setNftNumber } = projectsSlice.actions
+export const { setProjects, setOwnedNfts, setOneProject, setOneNft, setNftNumber, setDropList } = projectsSlice.actions
 
-// export const selectCount = (state: RootState) => state.counter.value
 export const selectProjects = (state: RootState) => state.projects.projects
 export const selectOwnedNfts = (state: RootState) => state.projects.ownedNfts
 
 export const selectOneProject = (state: RootState) => state.projects.oneProject
 export const selectOneNft = (state: RootState) => state.projects.oneNft
+export const selectDropList = (state: RootState) => {
+  // if (state.projects.dropList.length > 1) {
+  return state.projects.dropList.filter((item: any) => item.value !== '')
+  // }
+  // else {
+  //   let tempDropList = localStorage.getItem('dropList')
+  //   console.log(tempDropList)
+  //   return JSON.parse(tempDropList || '')
+  // }
+}
+
 // export const selectDiscordInfo = (state: RootState) => state.discord.discordInfo
 
 // export const incrementAsync = (amount: number) => (dispatch: any) => {
@@ -71,23 +90,6 @@ export const selectOneNft = (state: RootState) => state.projects.oneNft
 // };
 export default projectsSlice.reducer
 
-// export const setProjectsAsync = createAsyncThunk(
-//   'projects/fetchAllProjects',
-//   async () => {
-//     try {
-//       const response = await axios.get(`${BACKEND_URL}/api/project/getAllData`)
-//       if (response.data.success) {
-//         console.log('data: ', response.data.data)
-//         // dispatch(setProjects(response.data.data))
-//       }
-//     } catch (error) {
-//       console.log(error)
-//     }
-
-//     // dispatch(setLoadingFlag(false))
-//     // return response.data
-//   }
-// )
 export const setProjectsAsync = async (dispatch: any) => {
   try {
     const res = await axios.get(`${BACKEND_URL}/api/project/getAllData`)

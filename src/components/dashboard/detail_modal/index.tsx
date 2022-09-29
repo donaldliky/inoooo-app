@@ -30,6 +30,11 @@ const DetailModal = (props: any) => {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        BackdropProps={{
+          style: {
+            backgroundColor: 'rgba(255, 165, 0, 0.75)'
+          }
+        }}
       >
         <div className='detail-centered'>
           <div className="top">Detail Information about {name}

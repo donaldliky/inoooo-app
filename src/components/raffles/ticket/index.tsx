@@ -6,6 +6,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import Dialog from '@mui/material/Dialog';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
+import { warnToast } from '../../../helpers/toast';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -17,11 +18,16 @@ const Transition = React.forwardRef(function Transition(
 });
 
 const TicketModal = (props: any) => {
-  const { ticketModalShow, setTicketModalShow } = props
+  const { ticketModalShow, setTicketModalShow, buyTicket, type } = props
+  const [ticketNumber, setTicketNumber] = useState(1)
 
   const handleClose = () => {
+    setTicketNumber(1)
     setTicketModalShow(false)
   }
+
+
+
   return (
     <Dialog
       open={ticketModalShow}
@@ -32,7 +38,7 @@ const TicketModal = (props: any) => {
     >
       <div className='ticket-body'>
         <div className="centered">
-          <div className="top">BUY TICKETS
+          <div className="top">BUY {type === 1 ? 'WHITELIST' : 'NFT'} TICKETS
             <AiOutlineClose className='cross' onClick={handleClose} />
           </div>
           <div className="center">
@@ -46,10 +52,10 @@ const TicketModal = (props: any) => {
           </div>
           <div className="bottom">
             <div className="bottom-left">
-              <input />&nbsp;=&nbsp;100&nbsp;$HUNT
+              <input type='text' value={ticketNumber > 0 ? ticketNumber : ''} onChange={(e) => setTicketNumber(Number(e.target.value))} />&nbsp;=&nbsp;{ticketNumber > 0 && ticketNumber * 10}&nbsp;$HUNT
             </div>
             <div className="bottom-right">
-              <button>BUY&nbsp;TICKETS</button>
+              <button onClick={() => buyTicket(type, ticketNumber)}>BUY&nbsp;TICKETS</button>
             </div>
           </div>
         </div>

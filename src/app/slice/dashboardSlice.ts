@@ -21,7 +21,8 @@ const initialState = {
     accent_color: null,
     locale: null,
     mfa_enabled: null
-  }
+  },
+  myDiscordServers: []
 }
 
 export const dashboardSlice = createSlice({
@@ -33,15 +34,20 @@ export const dashboardSlice = createSlice({
     },
     setDiscordInfo: (state, action: PayloadAction<any>) => {
       state.discordInfo = action.payload
+    },
+    setMyDiscordServers: (state, action: PayloadAction<any>) => {
+      state.myDiscordServers = action.payload
     }
   },
 })
 
-export const { setAuthorizeInfo, setDiscordInfo } = dashboardSlice.actions
+export const { setAuthorizeInfo, setDiscordInfo, setMyDiscordServers } = dashboardSlice.actions
 
 export const selectAuthorizeInfo = (state: RootState) => state.discord.authorizeInfo
 
 export const selectDiscordInfo = (state: RootState) => state.discord.discordInfo
+
+export const selectMyDiscordServers = (state: RootState) => state.discord.myDiscordServers
 
 export default dashboardSlice.reducer
 

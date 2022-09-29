@@ -12,7 +12,13 @@ import './index.scss'
 
 // redux
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { selectOneProject, selectOwnedNfts, setOneProject, setOwnedNfts, selectProjects } from '../../app/slice/projectSlice'
+import {
+  selectOneProject,
+  setOneProject,
+  setOwnedNfts,
+  selectProjects,
+  selectDropList
+} from '../../app/slice/projectSlice'
 import { selectWalletAddress } from '../../app/slice/wallletSlice';
 import { setLoadingFlag } from '../../app/slice/wallletSlice';
 import { setOneProjectAsync } from '../../app/slice/projectSlice';
@@ -37,9 +43,11 @@ const Project = () => {
   // redux
   const selectedProject = useAppSelector(selectOneProject)
   const walletAddress = useAppSelector(selectWalletAddress)
+  const dropList = useAppSelector(selectDropList)
+
   // state
   const [caption, setCaption] = useState(selectedProject.name || 'Select DAO')
-  const [dropList, setDropList] = useState(initDropList)
+  // const [dropList, setDropList] = useState(initDropList)
 
   const onClickLeftMenu = (path: string) => {
     localStorage.setItem('lastTab', path)
@@ -97,11 +105,14 @@ const Project = () => {
           // dispatch(setLoadingFlag(true))
           console.log('get owned nft...')
           const solanaClient = new SolanaClient({ rpcEndpoint: process.env.CLUSTER_API || CLUSTER_API })
-          console.log('selected project: ', selectedProject.creatorAddress, walletAddress)
+          console.log('selected project: ', selectedProject)
           const ownedNfts = await solanaClient.getAllCollectiblesWithCreator([walletAddress as string], selectedProject.creatorAddress)
           console.log('owned: ', ownedNfts)
-          dispatch(setOwnedNfts(ownedNfts[walletAddress as string]))
-
+          if (!(selectedProject.creatorAddress && selectedProject.creatorAddress.length > 0)) {
+            dispatch(setOwnedNfts([]))
+          } else {
+            dispatch(setOwnedNfts(ownedNfts[walletAddress as string]))
+          }
         }
       } catch (e) {
         console.log(e)
@@ -115,16 +126,16 @@ const Project = () => {
   }, [selectedProject._id, walletAddress])
 
   // get dao drop down list
-  useEffect(() => {
-    if (allProjects.length > 0) {
-      const temp = allProjects.map((item: any) => {
-        return { value: item.name }
-      })
+  // useEffect(() => {
+  //   if (allProjects.length > 0) {
+  //     const temp = allProjects.map((item: any) => {
+  //       return { value: item.name }
+  //     })
 
-      setDropList(temp)
-      setCaption(selectedProject.name)
-    }
-  }, [allProjects.length])
+  //     setDropList(temp)
+  //     setCaption(selectedProject.name)
+  //   }
+  // }, [allProjects.length])
 
   return (
     <div className='project-body'>

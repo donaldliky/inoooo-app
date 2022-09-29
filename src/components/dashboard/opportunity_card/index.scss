@@ -60,7 +60,7 @@
 
     .nft-name {
       font-weight: 600;
-
+      color: #5F4314;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -143,11 +143,9 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 180%;
-    color: #000000;
 
     .cross {
       cursor: pointer;
-      color: black;
     }
   }
 }

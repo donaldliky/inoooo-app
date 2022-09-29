@@ -7,8 +7,8 @@ import axios from 'axios';
 import { useWalletNfts } from "@nfteyez/sol-rayz-react";
 
 // redux
-import { setOwnedNfts, setOneProject } from '../../../app/slice/projectSlice';
-import { selectDiscordInfo } from '../../../app/slice/dashboardSlice';
+import { setOwnedNfts, setOneProject, setDropList, selectDropList } from '../../../app/slice/projectSlice';
+import { selectDiscordInfo, selectMyDiscordServers } from '../../../app/slice/dashboardSlice';
 import { selectWalletAddress } from '../../../app/slice/wallletSlice';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
@@ -23,23 +23,27 @@ const HomeCard = (props: any) => {
   const navigate = useNavigate()
 
   const { _id, name, description, mintDate, mintPrice, totalSupply, image, status, creatorAddress, discord, website, twitter, keyValue, upvote } = props.data
+  const isMyserver = props.isMyServer
+
 
   // redux
   const discordInfo = useAppSelector(selectDiscordInfo)
   const myAddress = useAppSelector(selectWalletAddress)
+  const dropList = useAppSelector(selectDropList)
 
   const discordId = discordInfo.id
   const [upvoteData, setUpvoteData] = useState(upvote)
 
   const voteFlag = upvoteData.indexOf(discordId) > -1 ? true : false
   const voteNumber = upvoteData.length
-  const [hasNft, setHasNft] = useState(false)
+  const [hasNft, setHasNft] = useState(false) // view is enable or disable
   const d = new Date(mintDate)
 
   const onClickView = async () => {
     dispatch(setOneProject(props.data))
     localStorage.setItem('lastProject', JSON.stringify(props.data))
     localStorage.setItem('lastTab', '/')
+    localStorage.setItem('dropList', JSON.stringify(dropList))
     navigate('/project/' + keyValue)
   }
 
@@ -61,7 +65,7 @@ const HomeCard = (props: any) => {
   });
 
   useEffect(() => {
-    if (nfts.length > 0) {
+    if (creatorAddress.length > 0 && nfts.length > 0) {
       let flag = false
       nfts.map((nft: any) => {
         creatorAddress.map((creator: string) => {
@@ -76,6 +80,22 @@ const HomeCard = (props: any) => {
       setHasNft(flag)
     }
   }, [nfts.length])
+
+  useEffect(() => {
+    if (!(creatorAddress && creatorAddress.length > 0)) {
+      setHasNft(isMyserver)
+    }
+  }, [])
+
+  useEffect(() => {
+    (
+      () => {
+        if (hasNft && !(dropList.filter((item: any) => item.value === name).length > 0)) {
+          dispatch(setDropList(name))
+        }
+      }
+    )()
+  }, [hasNft])
 
   return (
     <div className='home-card-body'>
@@ -102,7 +122,7 @@ const HomeCard = (props: any) => {
                 </tr>
                 <tr>
                   <td>Mint Date</td>
-                  <td className='tr-right'>{d ? d.getMonth() + '/' + d.getDay() + '/' + d.getFullYear() : 'TBA'}</td>
+                  <td className='tr-right'>{d ? d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear() : 'TBA'}</td>
                 </tr>
                 <tr>
                   <td>Status</td>
@@ -119,7 +139,7 @@ const HomeCard = (props: any) => {
         </div>
       </div>
       <div className='body-right'>
-        <img src={`${BACKEND_URL + image}`} alt={`${BACKEND_URL + image}`} />
+        <img src={`${BACKEND_URL + image}`} alt={name} />
         <button disabled={!hasNft} onClick={() => onClickView()}
           style={{ background: hasNft ? '' : '#dea442' }}
         >
